@@ -25,6 +25,7 @@ class YourModel(BaseModel):
 
         output = {}
         return output
+        
 def run():
     model = YourModel()
     server = create_server(model, ip="localhost", port=50051, max_workders=5)
