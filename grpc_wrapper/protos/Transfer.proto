@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "grpc_wrapper/protos/Tensor.proto";
+
+service Transfer {
+    rpc predict(PredictRequest) returns (PredictResponse){}
+}
+
+message PredictRequest {
+  map<string,TensorProto> input = 1;
+}
+
+message PredictResponse {
+  map<string,TensorProto> output = 1;
+}

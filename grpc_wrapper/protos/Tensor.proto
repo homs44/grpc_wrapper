@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+message TensorProto {
+  int32 type = 1;
+
+  // DT_INT32, DT_INT16, DT_INT8, DT_UINT8.
+  int32 int_val = 2;
+
+  // DT_INT64
+  int64 int64_val = 3;
+
+  // DT_FLOAT.
+  float float_val = 4;
+
+  // DT_DOUBLE.
+  double double_val = 5;
+
+  // DT_STRING
+  string string_val = 6;
+
+  // DT_BOOL
+  bool bool_val = 7;
+
+  // DT_BYTE
+  bytes byte_val = 8;
+
+  // DT_UINT32
+  uint32 uint32_val = 9;
+
+  // DT_UINT64
+  uint64 uint64_val = 10;
+};
