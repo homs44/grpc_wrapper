@@ -8,6 +8,8 @@
 .idea/*
 build/*
 dist/*
+grpc_wrapper.egg-info/*
+*.pyc
 
 # CMake
 cmake-build-debug/
