@@ -12,35 +12,35 @@ from google.protobuf import descriptor_pb2
 
 _sym_db = _symbol_database.Default()
 
-from grpc_wrapper.pb2 import Tensor_pb2 as Tensor__pb2
+from grpc_wrapper.pb2 import Data_pb2 as Data__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='Transfer.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x0eTransfer.proto\x1a\x0cTensor.proto\"w\n\x0ePredictRequest\x12)\n\x05input\x18\x01 \x03(\x0b\x32\x1a.PredictRequest.InputEntry\x1a:\n\nInputEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1b\n\x05value\x18\x02 \x01(\x0b\x32\x0c.TensorProto:\x02\x38\x01\"|\n\x0fPredictResponse\x12,\n\x06output\x18\x01 \x03(\x0b\x32\x1c.PredictResponse.OutputEntry\x1a;\n\x0bOutputEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1b\n\x05value\x18\x02 \x01(\x0b\x32\x0c.TensorProto:\x02\x38\x01\x32:\n\x08Transfer\x12.\n\x07predict\x12\x0f.PredictRequest\x1a\x10.PredictResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0eTransfer.proto\x1a\nData.proto\"b\n\x07Request\x12\"\n\x05input\x18\x01 \x03(\x0b\x32\x13.Request.InputEntry\x1a\x33\n\nInputEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x14\n\x05value\x18\x02 \x01(\x0b\x32\x05.Data:\x02\x38\x01\"g\n\x08Response\x12%\n\x06output\x18\x01 \x03(\x0b\x32\x15.Response.OutputEntry\x1a\x34\n\x0bOutputEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x14\n\x05value\x18\x02 \x01(\x0b\x32\x05.Data:\x02\x38\x01\"(\n\x0c\x41rrayRequest\x12\x18\n\x06inputs\x18\x02 \x03(\x0b\x32\x08.Request\"+\n\rArrayResponse\x12\x1a\n\x07outputs\x18\x02 \x03(\x0b\x32\t.Response2\xe3\x01\n\x08Transfer\x12%\n\x0csendDicToDic\x12\x08.Request\x1a\t.Response\"\x00\x12*\n\x0csendArrToDic\x12\r.ArrayRequest\x1a\t.Response\"\x00\x12*\n\x0csendDicToArr\x12\x08.Request\x1a\x0e.ArrayResponse\"\x00\x12/\n\x0csendArrToArr\x12\r.ArrayRequest\x1a\x0e.ArrayResponse\"\x00\x12\'\n\x04send\x12\r.ArrayRequest\x1a\x0e.ArrayResponse\"\x00\x62\x06proto3')
   ,
-  dependencies=[Tensor__pb2.DESCRIPTOR,])
+  dependencies=[Data__pb2.DESCRIPTOR,])
 
 
 
 
-_PREDICTREQUEST_INPUTENTRY = _descriptor.Descriptor(
+_REQUEST_INPUTENTRY = _descriptor.Descriptor(
   name='InputEntry',
-  full_name='PredictRequest.InputEntry',
+  full_name='Request.InputEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='PredictRequest.InputEntry.key', index=0,
+      name='key', full_name='Request.InputEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='PredictRequest.InputEntry.value', index=1,
+      name='value', full_name='Request.InputEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -58,19 +58,19 @@ _PREDICTREQUEST_INPUTENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=93,
-  serialized_end=151,
+  serialized_start=77,
+  serialized_end=128,
 )
 
-_PREDICTREQUEST = _descriptor.Descriptor(
-  name='PredictRequest',
-  full_name='PredictRequest',
+_REQUEST = _descriptor.Descriptor(
+  name='Request',
+  full_name='Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='input', full_name='PredictRequest.input', index=0,
+      name='input', full_name='Request.input', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -79,7 +79,7 @@ _PREDICTREQUEST = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_PREDICTREQUEST_INPUTENTRY, ],
+  nested_types=[_REQUEST_INPUTENTRY, ],
   enum_types=[
   ],
   options=None,
@@ -88,27 +88,27 @@ _PREDICTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=32,
-  serialized_end=151,
+  serialized_start=30,
+  serialized_end=128,
 )
 
 
-_PREDICTRESPONSE_OUTPUTENTRY = _descriptor.Descriptor(
+_RESPONSE_OUTPUTENTRY = _descriptor.Descriptor(
   name='OutputEntry',
-  full_name='PredictResponse.OutputEntry',
+  full_name='Response.OutputEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='PredictResponse.OutputEntry.key', index=0,
+      name='key', full_name='Response.OutputEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='PredictResponse.OutputEntry.value', index=1,
+      name='value', full_name='Response.OutputEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -126,19 +126,19 @@ _PREDICTRESPONSE_OUTPUTENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=218,
-  serialized_end=277,
+  serialized_start=181,
+  serialized_end=233,
 )
 
-_PREDICTRESPONSE = _descriptor.Descriptor(
-  name='PredictResponse',
-  full_name='PredictResponse',
+_RESPONSE = _descriptor.Descriptor(
+  name='Response',
+  full_name='Response',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='output', full_name='PredictResponse.output', index=0,
+      name='output', full_name='Response.output', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -147,7 +147,7 @@ _PREDICTRESPONSE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_PREDICTRESPONSE_OUTPUTENTRY, ],
+  nested_types=[_RESPONSE_OUTPUTENTRY, ],
   enum_types=[
   ],
   options=None,
@@ -156,55 +156,135 @@ _PREDICTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=153,
-  serialized_end=277,
+  serialized_start=130,
+  serialized_end=233,
 )
 
-_PREDICTREQUEST_INPUTENTRY.fields_by_name['value'].message_type = Tensor__pb2._TENSORPROTO
-_PREDICTREQUEST_INPUTENTRY.containing_type = _PREDICTREQUEST
-_PREDICTREQUEST.fields_by_name['input'].message_type = _PREDICTREQUEST_INPUTENTRY
-_PREDICTRESPONSE_OUTPUTENTRY.fields_by_name['value'].message_type = Tensor__pb2._TENSORPROTO
-_PREDICTRESPONSE_OUTPUTENTRY.containing_type = _PREDICTRESPONSE
-_PREDICTRESPONSE.fields_by_name['output'].message_type = _PREDICTRESPONSE_OUTPUTENTRY
-DESCRIPTOR.message_types_by_name['PredictRequest'] = _PREDICTREQUEST
-DESCRIPTOR.message_types_by_name['PredictResponse'] = _PREDICTRESPONSE
+
+_ARRAYREQUEST = _descriptor.Descriptor(
+  name='ArrayRequest',
+  full_name='ArrayRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='inputs', full_name='ArrayRequest.inputs', index=0,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=235,
+  serialized_end=275,
+)
+
+
+_ARRAYRESPONSE = _descriptor.Descriptor(
+  name='ArrayResponse',
+  full_name='ArrayResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='outputs', full_name='ArrayResponse.outputs', index=0,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=277,
+  serialized_end=320,
+)
+
+_REQUEST_INPUTENTRY.fields_by_name['value'].message_type = Data__pb2._DATA
+_REQUEST_INPUTENTRY.containing_type = _REQUEST
+_REQUEST.fields_by_name['input'].message_type = _REQUEST_INPUTENTRY
+_RESPONSE_OUTPUTENTRY.fields_by_name['value'].message_type = Data__pb2._DATA
+_RESPONSE_OUTPUTENTRY.containing_type = _RESPONSE
+_RESPONSE.fields_by_name['output'].message_type = _RESPONSE_OUTPUTENTRY
+_ARRAYREQUEST.fields_by_name['inputs'].message_type = _REQUEST
+_ARRAYRESPONSE.fields_by_name['outputs'].message_type = _RESPONSE
+DESCRIPTOR.message_types_by_name['Request'] = _REQUEST
+DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
+DESCRIPTOR.message_types_by_name['ArrayRequest'] = _ARRAYREQUEST
+DESCRIPTOR.message_types_by_name['ArrayResponse'] = _ARRAYRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-PredictRequest = _reflection.GeneratedProtocolMessageType('PredictRequest', (_message.Message,), dict(
+Request = _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), dict(
 
   InputEntry = _reflection.GeneratedProtocolMessageType('InputEntry', (_message.Message,), dict(
-    DESCRIPTOR = _PREDICTREQUEST_INPUTENTRY,
+    DESCRIPTOR = _REQUEST_INPUTENTRY,
     __module__ = 'Transfer_pb2'
-    # @@protoc_insertion_point(class_scope:PredictRequest.InputEntry)
+    # @@protoc_insertion_point(class_scope:Request.InputEntry)
     ))
   ,
-  DESCRIPTOR = _PREDICTREQUEST,
+  DESCRIPTOR = _REQUEST,
   __module__ = 'Transfer_pb2'
-  # @@protoc_insertion_point(class_scope:PredictRequest)
+  # @@protoc_insertion_point(class_scope:Request)
   ))
-_sym_db.RegisterMessage(PredictRequest)
-_sym_db.RegisterMessage(PredictRequest.InputEntry)
+_sym_db.RegisterMessage(Request)
+_sym_db.RegisterMessage(Request.InputEntry)
 
-PredictResponse = _reflection.GeneratedProtocolMessageType('PredictResponse', (_message.Message,), dict(
+Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), dict(
 
   OutputEntry = _reflection.GeneratedProtocolMessageType('OutputEntry', (_message.Message,), dict(
-    DESCRIPTOR = _PREDICTRESPONSE_OUTPUTENTRY,
+    DESCRIPTOR = _RESPONSE_OUTPUTENTRY,
     __module__ = 'Transfer_pb2'
-    # @@protoc_insertion_point(class_scope:PredictResponse.OutputEntry)
+    # @@protoc_insertion_point(class_scope:Response.OutputEntry)
     ))
   ,
-  DESCRIPTOR = _PREDICTRESPONSE,
+  DESCRIPTOR = _RESPONSE,
   __module__ = 'Transfer_pb2'
-  # @@protoc_insertion_point(class_scope:PredictResponse)
+  # @@protoc_insertion_point(class_scope:Response)
   ))
-_sym_db.RegisterMessage(PredictResponse)
-_sym_db.RegisterMessage(PredictResponse.OutputEntry)
+_sym_db.RegisterMessage(Response)
+_sym_db.RegisterMessage(Response.OutputEntry)
+
+ArrayRequest = _reflection.GeneratedProtocolMessageType('ArrayRequest', (_message.Message,), dict(
+  DESCRIPTOR = _ARRAYREQUEST,
+  __module__ = 'Transfer_pb2'
+  # @@protoc_insertion_point(class_scope:ArrayRequest)
+  ))
+_sym_db.RegisterMessage(ArrayRequest)
+
+ArrayResponse = _reflection.GeneratedProtocolMessageType('ArrayResponse', (_message.Message,), dict(
+  DESCRIPTOR = _ARRAYRESPONSE,
+  __module__ = 'Transfer_pb2'
+  # @@protoc_insertion_point(class_scope:ArrayResponse)
+  ))
+_sym_db.RegisterMessage(ArrayResponse)
 
 
-_PREDICTREQUEST_INPUTENTRY.has_options = True
-_PREDICTREQUEST_INPUTENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
-_PREDICTRESPONSE_OUTPUTENTRY.has_options = True
-_PREDICTRESPONSE_OUTPUTENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
+_REQUEST_INPUTENTRY.has_options = True
+_REQUEST_INPUTENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
+_RESPONSE_OUTPUTENTRY.has_options = True
+_RESPONSE_OUTPUTENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
 
 _TRANSFER = _descriptor.ServiceDescriptor(
   name='Transfer',
@@ -212,16 +292,52 @@ _TRANSFER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=279,
-  serialized_end=337,
+  serialized_start=323,
+  serialized_end=550,
   methods=[
   _descriptor.MethodDescriptor(
-    name='predict',
-    full_name='Transfer.predict',
+    name='sendDicToDic',
+    full_name='Transfer.sendDicToDic',
     index=0,
     containing_service=None,
-    input_type=_PREDICTREQUEST,
-    output_type=_PREDICTRESPONSE,
+    input_type=_REQUEST,
+    output_type=_RESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='sendArrToDic',
+    full_name='Transfer.sendArrToDic',
+    index=1,
+    containing_service=None,
+    input_type=_ARRAYREQUEST,
+    output_type=_RESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='sendDicToArr',
+    full_name='Transfer.sendDicToArr',
+    index=2,
+    containing_service=None,
+    input_type=_REQUEST,
+    output_type=_ARRAYRESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='sendArrToArr',
+    full_name='Transfer.sendArrToArr',
+    index=3,
+    containing_service=None,
+    input_type=_ARRAYREQUEST,
+    output_type=_ARRAYRESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='send',
+    full_name='Transfer.send',
+    index=4,
+    containing_service=None,
+    input_type=_ARRAYREQUEST,
+    output_type=_ARRAYRESPONSE,
     options=None,
   ),
 ])

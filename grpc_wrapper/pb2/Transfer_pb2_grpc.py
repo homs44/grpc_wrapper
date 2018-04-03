@@ -14,10 +14,30 @@ class TransferStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.predict = channel.unary_unary(
-        '/Transfer/predict',
-        request_serializer=Transfer__pb2.PredictRequest.SerializeToString,
-        response_deserializer=Transfer__pb2.PredictResponse.FromString,
+    self.sendDicToDic = channel.unary_unary(
+        '/Transfer/sendDicToDic',
+        request_serializer=Transfer__pb2.Request.SerializeToString,
+        response_deserializer=Transfer__pb2.Response.FromString,
+        )
+    self.sendArrToDic = channel.unary_unary(
+        '/Transfer/sendArrToDic',
+        request_serializer=Transfer__pb2.ArrayRequest.SerializeToString,
+        response_deserializer=Transfer__pb2.Response.FromString,
+        )
+    self.sendDicToArr = channel.unary_unary(
+        '/Transfer/sendDicToArr',
+        request_serializer=Transfer__pb2.Request.SerializeToString,
+        response_deserializer=Transfer__pb2.ArrayResponse.FromString,
+        )
+    self.sendArrToArr = channel.unary_unary(
+        '/Transfer/sendArrToArr',
+        request_serializer=Transfer__pb2.ArrayRequest.SerializeToString,
+        response_deserializer=Transfer__pb2.ArrayResponse.FromString,
+        )
+    self.send = channel.unary_unary(
+        '/Transfer/send',
+        request_serializer=Transfer__pb2.ArrayRequest.SerializeToString,
+        response_deserializer=Transfer__pb2.ArrayResponse.FromString,
         )
 
 
@@ -25,7 +45,35 @@ class TransferServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def predict(self, request, context):
+  def sendDicToDic(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def sendArrToDic(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def sendDicToArr(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def sendArrToArr(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def send(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -35,10 +83,30 @@ class TransferServicer(object):
 
 def add_TransferServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'predict': grpc.unary_unary_rpc_method_handler(
-          servicer.predict,
-          request_deserializer=Transfer__pb2.PredictRequest.FromString,
-          response_serializer=Transfer__pb2.PredictResponse.SerializeToString,
+      'sendDicToDic': grpc.unary_unary_rpc_method_handler(
+          servicer.sendDicToDic,
+          request_deserializer=Transfer__pb2.Request.FromString,
+          response_serializer=Transfer__pb2.Response.SerializeToString,
+      ),
+      'sendArrToDic': grpc.unary_unary_rpc_method_handler(
+          servicer.sendArrToDic,
+          request_deserializer=Transfer__pb2.ArrayRequest.FromString,
+          response_serializer=Transfer__pb2.Response.SerializeToString,
+      ),
+      'sendDicToArr': grpc.unary_unary_rpc_method_handler(
+          servicer.sendDicToArr,
+          request_deserializer=Transfer__pb2.Request.FromString,
+          response_serializer=Transfer__pb2.ArrayResponse.SerializeToString,
+      ),
+      'sendArrToArr': grpc.unary_unary_rpc_method_handler(
+          servicer.sendArrToArr,
+          request_deserializer=Transfer__pb2.ArrayRequest.FromString,
+          response_serializer=Transfer__pb2.ArrayResponse.SerializeToString,
+      ),
+      'send': grpc.unary_unary_rpc_method_handler(
+          servicer.send,
+          request_deserializer=Transfer__pb2.ArrayRequest.FromString,
+          response_serializer=Transfer__pb2.ArrayResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

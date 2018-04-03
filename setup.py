@@ -8,7 +8,7 @@ install_requires = [
 dependency_links = []
 
 setup(name='grpc_wrapper',
-      version='0.3',
+      version='0.4',
       description='simple client and server for grpc',
       url='',
       author='loveloper',

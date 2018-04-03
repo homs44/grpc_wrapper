@@ -1,15 +1,30 @@
 syntax = "proto3";
 
-import "grpc_wrapper/protos/Tensor.proto";
+import "Data.proto";
 
 service Transfer {
-    rpc predict(PredictRequest) returns (PredictResponse){}
+    rpc sendDicToDic(Request) returns (Response){}
+    rpc sendArrToDic(ArrayRequest) returns (Response){}
+    rpc sendDicToArr(Request) returns (ArrayResponse){}
+    rpc sendArrToArr(ArrayRequest) returns (ArrayResponse){}
+    rpc send(ArrayRequest) returns (ArrayResponse){}
 }
 
-message PredictRequest {
-  map<string,TensorProto> input = 1;
+
+message Request {
+  map<string,Data> input = 1;
 }
 
-message PredictResponse {
-  map<string,TensorProto> output = 1;
+message Response {
+  map<string,Data> output = 1;
+}
+
+
+message ArrayRequest {
+    repeated Request inputs = 2;
+}
+
+
+message ArrayResponse {
+    repeated Response outputs = 2;
 }

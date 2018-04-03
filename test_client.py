@@ -7,8 +7,10 @@ def test():
         "input_2": 0.3,
         "input_3": 3,
     }
+    inputs = [input, input]
+
     print("input" + str(input))
-    result = client.predict(input)
+    result = client.send(inputs)
     print("output" + str(result))
 
 

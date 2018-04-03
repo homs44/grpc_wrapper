@@ -43,16 +43,16 @@ def dict_to_protobuf(dic):
 
 def get_proto(value):
     if type(value) == str:
-        return Transfer_pb2.Tensor__pb2.TensorProto(type=6, string_val=value)
+        return Transfer_pb2.Data__pb2.Data(type=6, string_val=value)
     elif type(value) == int:
-        return Transfer_pb2.Tensor__pb2.TensorProto(type=2, int_val=value)
+        return Transfer_pb2.Data__pb2.Data(type=2, int_val=value)
     elif type(value) == float:
-        return Transfer_pb2.Tensor__pb2.TensorProto(type=5, double_val=value)
+        return Transfer_pb2.Data__pb2.Data(type=5, double_val=value)
     elif type(value) == float:
-        return Transfer_pb2.Tensor__pb2.TensorProto(type=5, double_val=value)
+        return Transfer_pb2.Data__pb2.Data(type=5, double_val=value)
     elif type(value) == bool:
-        return Transfer_pb2.Tensor__pb2.TensorProto(type=7, bool_val=value)
+        return Transfer_pb2.Data__pb2.Data(type=7, bool_val=value)
     elif type(value) == bytes:
-        return Transfer_pb2.Tensor__pb2.TensorProto(type=8, byte_val=value)
+        return Transfer_pb2.Data__pb2.Data(type=8, byte_val=value)
     else:
         return None

@@ -8,15 +8,42 @@ class TransferServer(Transfer_pb2_grpc.TransferServicer):
     def __init__(self, model):
         self.model = model
 
-    def predict(self, request, context):
-        input = protobuf_to_dict(request.input)
-        output = self.model.predict(input)
-        return Transfer_pb2.PredictResponse(output=dict_to_protobuf(output))
+    def send(self, request, context):
+        temp = []
+        for item in request.inputs:
+                item_wrapper = protobuf_to_dict(item.input)
+                if item_wrapper is not None:
+                    temp.append(item_wrapper)
+
+        input = None
+
+        if len(request.inputs) == 1:
+            input = temp[0]
+        else:
+            input = temp
+
+        result = self.model.send(input)
+        output_wrappers = []
+        try:
+            if type(result) == dict:
+                output_wrappers.append(Transfer_pb2.Response(output=dict_to_protobuf(result)))
+            elif type(result) == list:
+                output_wrappers = []
+                for item in result:
+                    print("%%%%"+str(item))
+                    item_wrapper = dict_to_protobuf(item)
+                    if item_wrapper is not None:
+                        output_wrappers.append(Transfer_pb2.Response(output=item_wrapper))
+        except Exception:
+            output_wrappers = []
+            print(str(Exception))
+
+        return Transfer_pb2.ArrayResponse(outputs=output_wrappers)
 
 
 class BaseModel:
 
-    def predict(self, input):
+    def send(self, input):
         pass
 
 

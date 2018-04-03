@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-message TensorProto {
+
+message Data {
   int32 type = 1;
 
   // DT_INT32, DT_INT16, DT_INT8, DT_UINT8.

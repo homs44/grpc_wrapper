@@ -6,17 +6,9 @@ class Model(BaseModel):
     def __init__(self):
         self.version = 1
 
-    def predict(self, input):
-        print("input" + str(input))
-
-        output = {
-            "output_1": input["input_1"]*3,
-            "output_2": input["input_2"]*3,
-            "output_3": input["input_3"]*3
-        }
-        print("output" + str(output))
-        return output
-
+    def send(self, input):
+        print("inputs" + str(input))
+        return [{"aaaa" : "333"}, {"bbb" : "vvvv"}]
 
 def test():
     model = Model()
