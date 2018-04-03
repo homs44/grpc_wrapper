@@ -18,12 +18,10 @@ class YourModel(BaseModel):
     def __init__(self):
         #initialize for your model
 
-    def predict(self,input):
+    def send(self,input):
 
-        # get data from input like below
-        value = input[key]
+        # input & output can be dictionary or array
 
-        output = {}
         return output
         
 def run():
@@ -37,7 +35,7 @@ def run():
         server.stop(0)
 
 ```
-Your model should inherit BaseModel and implement predict function
+Your model should inherit BaseModel and implement send function
 
 Client Example
 -------------
@@ -46,10 +44,8 @@ from grpc_wrapper.client import create_client
 
 def run():
     client = create_client(ip="localhost", port=50051)
-    input = {
-        "input_a": 1,
-        "input_b": 0.3,
-        "input_c": "value_c",
-    }
-    result = client.predict(input)
+
+    # input & output can be dictionary or array
+    output = client.send(input)
+
 ```
